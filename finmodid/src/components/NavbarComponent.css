@@ -1,0 +1,9 @@
+.sign-in-button {
+  text-align: center;
+  border: 2px solid white;
+  border-radius: 20px;
+}
+#menu-item {
+  color: #4b4b4b;
+  font-weight: 600;
+}
