@@ -1,0 +1,21 @@
+.card-icon {
+  margin: 50px auto 50px auto;
+  background-color: #efefef;
+  padding: 20px;
+  border-radius: 10px;
+  width: 70px;
+  height: 70px;
+}
+#card {
+  width: 350px;
+  margin: 30px 20px;
+  border-radius: 10px;
+  padding: 20px 10px;
+  border: none;
+}
+#card:hover{
+    background-color: bisque;
+}
+a:hover{
+    cursor: pointer;
+}

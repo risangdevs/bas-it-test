@@ -1,0 +1,35 @@
+.socmed-icon {
+  width: 30px;
+  height: 30px;
+  margin: 0 4px;
+}
+.flex-item {
+  width: 100%;
+  top: 50%;
+  margin: 0;
+  position: relative;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+}
+.flex-container {
+  width: inherit;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.bold-header {
+  font-weight: bold;
+}
+.gray-text {
+  color: gray;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 992px) {
+  .flex-container {
+    margin-top: 100px;
+  }
+}
+    
