@@ -23,6 +23,9 @@
 .bold-header {
   font-weight: bold;
 }
+.blue-header{
+    color: #00a9c0;
+}
 .gray-text {
   color: gray;
   margin-bottom: 20px;

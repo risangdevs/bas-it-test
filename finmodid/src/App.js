@@ -6,9 +6,11 @@ import bg2 from "./assets/Frame 108.png";
 import kotak from "./assets/kotak1.png";
 import kotak2 from "./assets/kotak2.png";
 import duduk from "./assets/duduk.png";
-import Container from "react-bootstrap/esm/Container";
 import { PageOne } from "./components/PageOne";
 import { PageTwo } from "./components/PageTwo";
+import { PageThree } from "./components/PageThree";
+import { PageFour } from "./components/PageFour";
+import { PageFive } from "./components/PageFive";
 function App() {
   return (
     <div className="main-wrapper">
@@ -25,6 +27,9 @@ function App() {
         <NavbarComponent />
         <PageOne />
         <PageTwo />
+        <PageThree />
+        <PageFour />
+        <PageFive />
       </div>
     </div>
   );

@@ -42,7 +42,7 @@ export const PageTwo = () => {
     },
   ]);
   return (
-    <Container style={{ margin: "20% auto", width: "inherit" }}>
+    <Container style={{ margin: "10% auto", width: "inherit",height:'auto' }}>
       <Container style={{ margin: "0 auto", width: "500px" }}>
         <h1
           className="bold-header"
