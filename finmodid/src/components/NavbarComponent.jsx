@@ -2,7 +2,11 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import "./NavbarComponent.css";
+import { useEffect, useState } from "react";
+import { LoginModal } from "./LoginModal";
 export const NavbarComponent = () => {
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  // useEffect(() => {}, [showLoginModal]);
   return (
     <Navbar
       bg="bg-white"
@@ -15,6 +19,12 @@ export const NavbarComponent = () => {
       }}
       className="main-navbar"
     >
+      {showLoginModal && (
+        <LoginModal
+          show={showLoginModal}
+          onHide={() => setShowLoginModal(false)}
+        />
+      )}
       <Container>
         <Navbar.Brand href="#home" style={{ fontWeight: "bold" }}>
           Finmod.id
@@ -38,7 +48,11 @@ export const NavbarComponent = () => {
               </Nav.Link>
             </div>
             <div className="navbar-menu-button-container">
-              <Nav.Link id="menu-item" href="#login">
+              <Nav.Link
+                id="menu-item"
+                href="#login"
+                onClick={() => setShowLoginModal(true)}
+              >
                 Login
               </Nav.Link>
             </div>
@@ -47,6 +61,7 @@ export const NavbarComponent = () => {
                 id="menu-item"
                 className="sign-in-button"
                 href="#signin"
+                onClick={() => setShowLoginModal(true)}
               >
                 Sign In
               </Nav.Link>

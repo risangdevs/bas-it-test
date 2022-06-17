@@ -8,6 +8,8 @@ import akurat from "../assets/Vector.png";
 import parameter from "../assets/Edit Square.png";
 import dollar from "../assets/Dollar.png";
 import { CardComponent } from "./CardComponent";
+import { useEffect } from "react";
+import { server } from "../server";
 export const PageTwo = () => {
   const [cards, setCards] = useState([
     {
@@ -41,8 +43,20 @@ export const PageTwo = () => {
       text: "Kami menyediakan default berdasarkan kinerja rata-rata perusahaan di industri yang sama",
     },
   ]);
+  const [whyUs, setWhyUs] = useState("");
+  useEffect(() => {
+    fetch(`${server}/whyus`)
+      .then((res) => res.json())
+      .then((data) => {
+        setWhyUs(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  console.log(whyUs);
   return (
-    <Container style={{ margin: "10% auto", width: "inherit",height:'auto' }}>
+    <Container style={{ margin: "10% auto", width: "inherit", height: "auto" }}>
       <Container style={{ margin: "0 auto", width: "500px" }}>
         <h1
           className="bold-header"
@@ -56,7 +70,10 @@ export const PageTwo = () => {
           tersebut
         </p>
       </Container>
-      <Container className="flex-container" style={{justifyContent:'center', height:'auto'}}>
+      <Container
+        className="flex-container"
+        style={{ justifyContent: "center", height: "auto" }}
+      >
         {cards.map((card, index) => (
           <CardComponent key={card.title} props={card} />
         ))}
