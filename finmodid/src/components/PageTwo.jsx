@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import "./PageOne.css";
 import metode from "../assets/Methode.png";
 import laporan from "../assets/Paper.png";
@@ -10,6 +10,8 @@ import dollar from "../assets/Dollar.png";
 import { CardComponent } from "./CardComponent";
 import { useEffect } from "react";
 import { server } from "../server";
+import { LoadingSpinner } from "./LoadingSpinner/LoadingSpinner";
+import { WhyUsModal } from "./WhyUsModal";
 export const PageTwo = () => {
   const [cards, setCards] = useState([
     {
@@ -43,8 +45,9 @@ export const PageTwo = () => {
       text: "Kami menyediakan default berdasarkan kinerja rata-rata perusahaan di industri yang sama",
     },
   ]);
+  const [showWhyUsModal, setShowWhyUsModal] = useState(false);
   const [whyUs, setWhyUs] = useState("");
-  useEffect(() => {
+  const getWhyUs = () => {
     fetch(`${server}/whyus`)
       .then((res) => res.json())
       .then((data) => {
@@ -53,22 +56,42 @@ export const PageTwo = () => {
       .catch((err) => {
         console.log(err);
       });
+  };
+  useEffect(() => {
+    getWhyUs();
   }, []);
-  console.log(whyUs);
+  // console.log(whyUs);
+
   return (
     <Container style={{ margin: "10% auto", width: "inherit", height: "auto" }}>
+      {showWhyUsModal && (
+        <WhyUsModal
+          show={showWhyUsModal}
+          onHide={() => {
+            setShowWhyUsModal(false);
+            getWhyUs();
+          }}
+        />
+      )}
       <Container style={{ margin: "0 auto", width: "500px" }}>
+        {localStorage.role === "admin" && (
+          <Button
+            onClick={() => {
+              setShowWhyUsModal(true);
+            }}
+          >
+            Edit Why Us
+          </Button>
+        )}
         <h1
           className="bold-header"
           style={{ textAlign: "center", marginBottom: "20px" }}
         >
           Mengapa Harus Kami?
         </h1>
-        <p className="gray-text" style={{ textAlign: "center" }}>
-          Karena kami memiliki beberapa keunggulan dalam menyajikan maupun
-          mengolah data yang telah kami dapatkan untuk penilaian perusahaan
-          tersebut
-        </p>
+        <div className="gray-text" style={{ textAlign: "center" }}>
+          {whyUs ? whyUs : <LoadingSpinner />}
+        </div>
       </Container>
       <Container
         className="flex-container"

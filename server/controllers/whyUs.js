@@ -10,6 +10,18 @@ class WhyUsController {
   }
   static async editWhyUs(req, res, next) {
     try {
+      const { text } = req.body;
+      if (!text) {
+        throw { message: "Please fill all the fields" };
+      }
+      const editNow = await WhyUs.update(
+        { text },
+        { where: { id: 1 }, returning: true }
+      );
+      if (editNow[0] === 0) {
+        throw { message: "Edit Failed" };
+      }
+      res.status(201).json({ message: "Edit Success" });
     } catch (error) {
       res.status(500).json({ error });
     }

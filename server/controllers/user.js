@@ -25,7 +25,7 @@ class UserController {
         }
       }
     } catch (error) {
-        console.log(`masuk error`);
+        // console.log(`masuk error`);
       res.status(500).json({ error });
     }
   }

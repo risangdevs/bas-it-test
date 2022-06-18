@@ -7,6 +7,12 @@ import { LoginModal } from "./LoginModal";
 export const NavbarComponent = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   // useEffect(() => {}, [showLoginModal]);
+  const doLogout = () => {
+    localStorage.removeItem("userid");
+    localStorage.removeItem("username");
+    localStorage.removeItem("role");
+    window.location.reload();
+  };
   return (
     <Navbar
       bg="bg-white"
@@ -47,25 +53,41 @@ export const NavbarComponent = () => {
                 Pricing
               </Nav.Link>
             </div>
-            <div className="navbar-menu-button-container">
-              <Nav.Link
-                id="menu-item"
-                href="#login"
-                onClick={() => setShowLoginModal(true)}
-              >
-                Login
-              </Nav.Link>
-            </div>
-            <div className="navbar-menu-button-container">
-              <Nav.Link
-                id="menu-item"
-                className="sign-in-button"
-                href="#signin"
-                onClick={() => setShowLoginModal(true)}
-              >
-                Sign In
-              </Nav.Link>
-            </div>
+            {!localStorage.userid && !localStorage.role && !localStorage.username && (
+              <div className="navbar-menu-button-container">
+                <Nav.Link
+                  id="menu-item"
+                  href="#login"
+                  onClick={() => setShowLoginModal(true)}
+                >
+                  Login
+                </Nav.Link>
+              </div>
+            )}
+            {!localStorage.userid && !localStorage.role && !localStorage.username && (
+              <div className="navbar-menu-button-container">
+                <Nav.Link
+                  id="menu-item"
+                  className="sign-in-button"
+                  href="#signin"
+                  onClick={() => setShowLoginModal(true)}
+                >
+                  Sign In
+                </Nav.Link>
+              </div>
+            )}
+            {localStorage.userid && localStorage.role && localStorage.username && (
+              <div className="navbar-menu-button-container">
+                <Nav.Link
+                  id="menu-item"
+                  className="sign-in-button"
+                  href="#signin"
+                  onClick={doLogout}
+                >
+                  Log Out
+                </Nav.Link>
+              </div>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
