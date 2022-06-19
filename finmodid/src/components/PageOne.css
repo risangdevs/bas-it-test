@@ -201,13 +201,13 @@
   border-radius: 5%;
   width: 300px;
 }
-.subscription-plan:hover{
+.subscription-plan:hover {
   background-color: rgb(77, 108, 207);
   color: white;
   transition: 0.4s;
   transform: scale(1.1);
 }
-.subscription-plan:hover .subscription-plan-button{
+.subscription-plan:hover .subscription-plan-button {
   background-color: blue;
   color: white;
   border: blue;
@@ -219,7 +219,7 @@
   background-color: white;
   font-weight: bold;
   color: blue;
-  border:#efefef 2px solid;
+  border: #efefef 2px solid;
   margin: 1rem auto;
   width: 200px;
   position: relative;
@@ -227,4 +227,99 @@
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+/* page eight */
+.page-eight-container {
+  margin: 10% auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  width: inherit;
+  background-color: rgb(110, 110, 255);
+}
+.page-eight-header {
+  margin: 4% auto auto auto;
+  text-align: center;
+  color: white;
+}
+.page-eight-text {
+  margin: 2% auto 2% auto;
+  text-align: center;
+  color: white;
+  width: 600px;
+}
+.form-container {
+  margin: 2% auto 4% auto;
+  width: fit-content;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+}
+.form-input {
+  width: 400px;
+  margin: 1px 0px;
+  border: 1px solid #efefef;
+  padding: 10px;
+  color: white;
+  background-color: rgb(110, 110, 255);
+}
+.form-input:focus {
+  outline: none;
+}
+.form-input::placeholder {
+  color: white;
+}
+.form-button {
+  background-color: orangered;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  height: 60px;
+  width: 160px;
+}
+
+/* Footer */
+.footer {
+  width: inherit;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer-flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* align-items: center; */
+  flex-wrap: wrap;
+  width: 1200px;
+}
+.footer-flex-item-zero {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 100px;
+}
+.footer-header{
+  font-size: 65px;
+  color:darkblue
+}
+.footer-flex-item-one {
+  margin-top: 0;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+.footer-flex-item-two {
+  margin-top: 0;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
 }
