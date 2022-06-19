@@ -38,6 +38,7 @@ export const LoginModal = (props) => {
       })
       .finally(() => {
         setIsLoading(false);
+        window.location.reload()
       });
   };
   return (

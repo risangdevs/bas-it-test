@@ -66,7 +66,7 @@ export const PageSeven = () => {
       <Container className="page-seven-body">
         {plan.map((item, index) => {
           return (
-            <Container className="subscription-plan">
+            <Container className="subscription-plan" key={index}>
               <p className="mb-4 mt-3 text-center">{item.name}</p>
               <div
                 style={{
