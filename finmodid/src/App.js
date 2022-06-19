@@ -11,17 +11,20 @@ import { PageTwo } from "./components/PageTwo";
 import { PageThree } from "./components/PageThree";
 import { PageFour } from "./components/PageFour";
 import { PageFive } from "./components/PageFive";
+import { PageSix } from "./components/PageSix";
+import { PageSeven } from "./components/PageSeven";
 function App() {
   return (
     <div className="main-wrapper">
       <div
         className="main-container"
         style={{
-          backgroundImage: `url(${bg2}),url(${bg}),url(${kotak}),url(${kotak2}),url(${duduk})`,
+          backgroundImage: `url(${bg2}),url(${bg}),url(${kotak}),url(${kotak2}),url(${duduk}),url(${kotak})`,
           backgroundRepeat: "no-repeat",
           backgroundSize:
-            "20vw 20vh,100vw 100vh,35vw 100vh, 35vw 100vh, 40vw 80vh",
-          backgroundPosition: "0 89vh,0 0,100% 110vh,0 300vh, 100% 380vh",
+            "20vw 20vh,100vw 100vh,35vw 100vh, 35vw 100vh, 40vw 80vh,35vw 100vh",
+          backgroundPosition:
+            "0 89vh,0 0,100% 110vh,0 300vh, 100% 380vh,100% 570vh",
         }}
       >
         <NavbarComponent />
@@ -30,6 +33,8 @@ function App() {
         <PageThree />
         <PageFour />
         <PageFive />
+        <PageSix />
+        <PageSeven />
       </div>
     </div>
   );
